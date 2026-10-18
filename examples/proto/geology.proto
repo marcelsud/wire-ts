@@ -1,0 +1,8 @@
+syntax = "proto3";
+package squareup.geology;
+
+enum Period {
+  CRETACEOUS = 0;
+  JURASSIC = 1;
+  TRIASSIC = 2;
+}

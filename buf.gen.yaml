@@ -1,0 +1,8 @@
+version: v2
+plugins:
+  - local: [node, dist/src/plugin.js]
+    out: examples/generated
+    strategy: all
+    opt:
+      - root=squareup.dinosaurs.Dinosaur
+      - root=squareup.dinosaurs.EdgeCases

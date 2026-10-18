@@ -1,0 +1,53 @@
+syntax = "proto3";
+package squareup.dinosaurs;
+
+import "geology.proto";
+
+// A shared schema used by the TypeScript and Square Wire examples.
+message Dinosaur {
+  string name = 1;
+  repeated string picture_urls = 2;
+  squareup.geology.Period period = 5;
+  optional uint64 discovery_id = 6;
+  bytes fossil = 7;
+  Dinosaur relative = 8;
+  map<string, int32> measurements = 9;
+  oneof location {
+    string museum = 10;
+    Coordinates coordinates = 11;
+  }
+
+  message Coordinates {
+    double latitude = 1;
+    double longitude = 2;
+  }
+}
+
+// Deliberately unreachable from the selected roots.
+message Unused {
+  string obsolete = 1;
+}
+
+message EdgeCases {
+  int32 int32_value = 1;
+  sint32 sint32_value = 2;
+  uint32 uint32_value = 3;
+  fixed32 fixed32_value = 4;
+  sfixed32 sfixed32_value = 5;
+  int64 int64_value = 6;
+  sint64 sint64_value = 7;
+  uint64 uint64_value = 8;
+  fixed64 fixed64_value = 9;
+  sfixed64 sfixed64_value = 10;
+  float float_value = 11;
+  double double_value = 12;
+  bool bool_value = 13;
+  repeated sint32 packed_values = 14;
+  repeated int32 unpacked_values = 15 [packed = false];
+  optional bool explicit_false = 16;
+  map<bool, Dinosaur> bool_keys = 17;
+  map<int64, string> int64_keys = 18;
+  repeated Dinosaur children = 19;
+  string __proto__ = 20;
+  string constructor = 21;
+}
